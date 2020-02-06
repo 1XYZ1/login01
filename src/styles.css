@@ -1,0 +1,27 @@
+.bit {
+    font-size: 16px;
+    color: #827ffe;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 3px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    border: 1px #403866 solid;
+    border-color: #827ffe;
+    padding: 7px;
+}
+
+.bit:hover {
+    background-color: #827ffe;
+    color: #fff;
+    border-color: #403866;
+}
