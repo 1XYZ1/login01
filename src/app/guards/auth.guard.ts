@@ -3,6 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,7 @@ constructor(private auth: AuthService, private router: Router) {
 
   canActivate():  boolean {
 if (this.auth.autenticado()) {
+  
   return true;
 
 } else {

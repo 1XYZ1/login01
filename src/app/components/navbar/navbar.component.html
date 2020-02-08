@@ -11,9 +11,20 @@
             </li>
         </ul>
 
-        <button class="bit my-2 my-sm-0 mr-2 " routerLink='/login'>Login</button>
-        <button class="bit my-2 my-sm-0 " routerLink='/registro'>Registrar</button>
-        <button class="bit my-2 my-sm-0 " (click)="logout()">logout</button>
+
+
+
+
+
+        <button *ngIf="!autenticado1" class="bit my-2 my-sm-0 mr-2 " routerLink='/login'>Login</button>
+        <button *ngIf="!autenticado1" class="bit my-2 my-sm-0 " routerLink='/registro'>Registrar</button>
+
+
+
+        <button *ngIf="autenticado1" class="bit my-2 my-sm-0 " (click)="logout()">logout</button>
+
+
+
 
     </div>
 </nav>

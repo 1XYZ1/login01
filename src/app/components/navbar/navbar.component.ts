@@ -9,14 +9,23 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  autenticado1: boolean =  this.auth.autenticado();
+  
+  
   constructor(private auth : AuthService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(){
+  this.autenticado1 = this.auth.autenticado();
   }
-
+  
   logout(){
     this.auth.logout();
     this.router.navigateByUrl('/login')
+    this.autenticado1 = false;
   }
+
+  
+  
+
 
 }

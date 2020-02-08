@@ -28,11 +28,13 @@ userToken: string;
 
   logout(){
   localStorage.removeItem('token');
+  localStorage.removeItem('expira');
+  this.autenticado();
   }
 
 
   login(usuario: UsuarioModel){
-
+  
     const authData  = {
 
       // email : usuario.email,
@@ -46,12 +48,11 @@ userToken: string;
       authData
     ).pipe(
       map(resp => {
-        console.log('Entró en el map')
         this.guardarToken(resp['idToken']);
-        return resp
+        
       })
     )
-
+  
   }
 
   nuevoUsuario(usuario: UsuarioModel){
@@ -83,6 +84,10 @@ userToken: string;
 
     this.userToken = idToken;
     localStorage.setItem('token', idToken)
+
+    let hoy = new Date();
+    hoy.setSeconds( 3600 );
+    localStorage.setItem('expira', hoy.getTime().toString())
   }
 
   leerToken() {
@@ -95,6 +100,28 @@ userToken: string;
   }
 
   autenticado(): boolean {
-    return this.userToken.length > 2;
+    if ( this.userToken.length < 2 ) {
+
+      return false;
+    }
+    const expira = Number (localStorage.getItem('expira'))
+    const expiraDate = new Date();
+    expiraDate.setTime(expira);
+  if (expiraDate > new Date()) {
+   
+    return true;
+
+    
+    
+  } else {
+    return false;
   }
+
+    // return this.userToken.length > 2;
+  }
+
+
+ 
+
 }
+

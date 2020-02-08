@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UsuarioModel } from '../../models/usuario.models';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-registro',
@@ -54,6 +55,7 @@ recordarme = false;
 
     this.auth.nuevoUsuario(this.usuario)
     .subscribe(resp => {
+      
       console.log(resp)
       Swal.fire({
         position: 'top-end',
